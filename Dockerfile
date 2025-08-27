@@ -40,4 +40,4 @@ USER galaxy
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "sh run.sh --daemon && tail -f /galaxy/paster.log"]
+CMD ["sh", "-c", "sh run.sh && tail -f /galaxy/database/gravity/log/*.log"]
