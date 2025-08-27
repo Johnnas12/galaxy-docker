@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  galaxy:
+    build: .
+    container_name: galaxy
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      GALAXY_CONFIG_FILE: /galaxy/config/galaxy.yml
+    volumes:
+      - ./config/galaxy.yml:/galaxy/config/galaxy.yml
+      - galaxy-data:/galaxy/database
+
+  db:
+    image: postgres:15
+    container_name: galaxy-db
+    restart: always
+    environment:
+      POSTGRES_DB: galaxy
+      POSTGRES_USER: galaxy
+      POSTGRES_PASSWORD: galaxy
+    volumes:
+      - galaxy-db-data:/var/lib/postgresql/data
+
+volumes:
+  galaxy-data:
+  galaxy-db-data:
