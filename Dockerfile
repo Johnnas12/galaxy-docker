@@ -3,6 +3,7 @@ FROM python:3.10-slim
 # Set environment variables
 ENV GALAXY_ROOT=/galaxy \
     GALAXY_CONFIG_FILE=/galaxy/config/galaxy.yml
+ENV NODE_OPTIONS=--max-old-space-size=9216
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -28,6 +29,7 @@ RUN git clone --depth 1 -b release_25.0 https://github.com/galaxyproject/galaxy.
 
 # Give full permissions to Galaxy folder
 RUN chown -R galaxy:galaxy $GALAXY_ROOT
+RUN chown -R galaxy:galaxy /galaxy/database
 
 # Copy custom config
 COPY config/galaxy.yml $GALAXY_ROOT/config/galaxy.yml

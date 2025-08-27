@@ -9,19 +9,19 @@ gravity:
     enable: true
     port: 4003
 
-  galaxy:
-    # IMPORTANT: match the docker-compose service name for Postgres
-    database_connection: postgresql://galaxy:galaxy@db:5432/galaxy
+galaxy:
+  # IMPORTANT: match the docker-compose service name for Postgres
+  database_connection: postgresql://galaxy:galaxy@db:5432/galaxy
 
-    interactivetools_enable: true
-    interactivetools_upstream_proxy: false
-    interactivetools_proxy_host: localhost:4003
-    interactivetools_map: interactivetools_map.sqlite
-    galaxy_infrastructure_url: http://localhost:8080
-    outputs_to_working_directory: true
+  interactivetools_enable: true
+  interactivetools_upstream_proxy: false
+  interactivetools_proxy_host: localhost:4003
+  interactivetools_map: interactivetools_map.sqlite
+  galaxy_infrastructure_url: http://localhost:8080
+  outputs_to_working_directory: true
 
-    # Allow embedding Galaxy in an iframe
-    x_frame_options: null
+  # Allow embedding Galaxy in an iframe
+  x_frame_options: null
 
-    # Comma-separated list of admin emails
-    admin_users: yohanesmesfin3@gmail.com
+  # Comma-separated list of admin emails
+  admin_users: yohanesmesfin3@gmail.com
