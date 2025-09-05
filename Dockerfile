@@ -40,4 +40,4 @@ USER galaxy
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "sh run.sh && tail -f /galaxy/database/gravity/log/*.log"]
+CMD ["sh", "-c", "GALAXY_SKIP_CLIENT_BUILD=1 ./run.sh && tail -f /galaxy/database/gravity/log/*.log"]
